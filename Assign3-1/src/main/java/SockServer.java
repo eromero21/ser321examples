@@ -185,9 +185,19 @@ public class SockServer {
 		  return rating;
 	  } else if(!user.getBoolean("ok")) {
 		  return user;
-	  } 
+	  }
 
       JSONObject res = new JSONObject();
+
+      for(int i=0; i<movies.length(); i++) {
+        JSONObject temp = movies.getJSONObject(i);
+        if(temp.getString("movie").equals(movie.getString("movie"))){
+          res.put("ok", false);
+          res.put("message", "This movie is already in the list.");
+          return res;
+        }
+      }
+
       JSONArray raters = new JSONArray();
 
 	  try {
