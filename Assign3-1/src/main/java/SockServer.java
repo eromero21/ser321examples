@@ -191,7 +191,7 @@ public class SockServer {
 
       for(int i=0; i<movies.length(); i++) {
         JSONObject temp = movies.getJSONObject(i);
-        if(temp.getString("movie").equals(movie.getString("movie"))){
+        if(temp.getString("movie").equals(req.getString("movie"))){
           res.put("ok", false);
           res.put("message", "This movie is already in the list.");
           return res;
